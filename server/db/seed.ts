@@ -28,14 +28,23 @@ async function seed() {
       { id: crypto.randomUUID(), name: 'سلمى العبد', email: 'salma@nour.edu.jo', role: 'TEACHER' as const, passwordHash: hashed },
     ];
 
-    const students = [
-      { id: crypto.randomUUID(), name: 'زيد حمدان', email: 'zeid@student.com', role: 'STUDENT' as const, className: '10A', passwordHash: hashed },
-      { id: crypto.randomUUID(), name: 'ريما القاسم', email: 'rima@student.com', role: 'STUDENT' as const, className: '10A', passwordHash: hashed },
-      { id: crypto.randomUUID(), name: 'خالد جابر', email: 'khaled@student.com', role: 'STUDENT' as const, className: '10B', passwordHash: hashed },
-      { id: crypto.randomUUID(), name: 'نور الهدى', email: 'nour@student.com', role: 'STUDENT' as const, className: '10B', passwordHash: hashed },
-      { id: crypto.randomUUID(), name: 'يوسف منصور', email: 'yousef@student.com', role: 'STUDENT' as const, className: '11A', passwordHash: hashed },
-      { id: crypto.randomUUID(), name: 'فرح ناصر', email: 'farah@student.com', role: 'STUDENT' as const, className: '11A', passwordHash: hashed },
-    ];
+    const students: any[] = [];
+    const classes = ['10A', '10B', '11A'];
+    const firstNames = ['زيد', 'ريما', 'خالد', 'نور', 'يوسف', 'فرح', 'عمر', 'سارة', 'علي', 'ليلى', 'محمد', 'مريم', 'أحمد', 'هبة', 'محمود', 'منى', 'حسن', 'دانا', 'سامر', 'رنا'];
+    const lastNames = ['حمدان', 'القاسم', 'جابر', 'الهدى', 'منصور', 'ناصر', 'المصري', 'حجاوي', 'العبد', 'خطيب', 'عبدالله', 'الخوري', 'الحداد', 'سعيد', 'بدر', 'عوض', 'فواز', 'الشيخ', 'الرائد', 'الكامل'];
+
+    for (const className of classes) {
+      for (let i = 0; i < 20; i++) {
+        students.push({
+          id: crypto.randomUUID(),
+          name: `${firstNames[i % firstNames.length]} ${lastNames[i % lastNames.length]}`,
+          email: `student${className}${i}@nour.edu.jo`,
+          role: 'STUDENT' as const,
+          className,
+          passwordHash: hashed
+        });
+      }
+    }
 
     console.log('Inserting users...');
     await db.insert(users).values([...teachers, ...students]).onConflictDoNothing();

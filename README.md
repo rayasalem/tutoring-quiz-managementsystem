@@ -4,31 +4,17 @@ A timed quiz platform for a small tutoring centre in Amman.
 
 ## Foundation Setup
 
-### 1. Clone/Download Project
-Ensure you have the project files locally.
-
-### 2. Environment Setup
+### 1. Environment Setup
 Copy the example environment file:
 ```powershell
 cp .env.example .env
 ```
 Ensure `JWT_SECRET` is set in `.env`.
 
-### 3. Install Dependencies
+### 2. Setup and Run
+Initialize the database and start the application:
 ```powershell
-npm install
-```
-
-### 4. Database Setup
-Initialize the SQLite database and seed it with sample users:
-```powershell
-npm run db:push
-npm run db:seed
-```
-
-### 5. Run the Application
-Start both the frontend and backend in development mode:
-```powershell
+npm run setup
 npm run dev
 ```
 

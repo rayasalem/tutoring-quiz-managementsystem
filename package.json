@@ -13,6 +13,7 @@
     "db:push": "drizzle-kit push",
     "db:seed": "tsx server/db/seed.ts",
     "db:studio": "drizzle-kit studio",
+    "setup": "npm install && npm run db:push && npm run db:seed",
     "test": "vitest",
     "lint": "tsc --noEmit"
   },
