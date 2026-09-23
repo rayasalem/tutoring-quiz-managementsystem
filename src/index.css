@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+@layer base {
+  [dir="rtl"] {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+}
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+body {
+  @apply bg-slate-50 text-slate-900 min-h-screen;
+}

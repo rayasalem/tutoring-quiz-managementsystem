@@ -1,11 +1,55 @@
-<div align="center">
+# Amman Tutoring Center Quiz Portal
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+A timed quiz platform for a small tutoring centre in Amman.
 
-  <h1>Built with AI Studio</h2>
+## Foundation Setup
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+### 1. Clone/Download Project
+Ensure you have the project files locally.
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+### 2. Environment Setup
+Copy the example environment file:
+```powershell
+cp .env.example .env
+```
+Ensure `JWT_SECRET` is set in `.env`.
 
-</div>
+### 3. Install Dependencies
+```powershell
+npm install
+```
+
+### 4. Database Setup
+Initialize the SQLite database and seed it with sample users:
+```powershell
+npm run db:push
+npm run db:seed
+```
+
+### 5. Run the Application
+Start both the frontend and backend in development mode:
+```powershell
+npm run dev
+```
+
+## Authentication & Credentials
+The system uses JWT for authentication and bcrypt for password hashing.
+
+### Sample Credentials
+| Role | Email | Password | Class |
+| :--- | :--- | :--- | :--- |
+| **Teacher** | `ahmad@nour.edu.jo` | `password123` | - |
+| **Student (10A)** | `zeid@student.com` | `password123` | 10A |
+| **Student (10B)** | `khaled@student.com` | `password123` | 10B |
+| **Student (11A)** | `yousef@student.com` | `password123` | 11A |
+
+## URLs
+- **Frontend:** [http://localhost:3000](http://localhost:3000)
+- **Backend Health:** [http://localhost:3005/api/health](http://localhost:3005/api/health)
+- **Auth Status:** [http://localhost:3000/api/auth/me](http://localhost:3000/api/auth/me) (requires token)
+
+## Tech Stack
+- **Frontend:** React + TypeScript + Vite + Tailwind CSS + React Router
+- **Backend:** Node.js + Express + JWT + bcrypt
+- **Database:** SQLite + Drizzle ORM
+- **Testing:** Vitest + Supertest

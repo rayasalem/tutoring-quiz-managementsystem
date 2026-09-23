@@ -1,0 +1,8 @@
+{
+  "name": "Amman Tutoring Center Quiz Portal",
+  "description": "A timed quiz platform for students and teachers with RTL support and server-side grading.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
