@@ -12,7 +12,12 @@ cp .env.example .env
 Ensure `JWT_SECRET` is set in `.env`.
 
 ### 2. Setup and Run
-Initialize the database and start the application:
+Initialize the database and start the application in one command:
+```powershell
+npm run setup:start
+```
+
+Or run step-by-step:
 ```powershell
 npm run setup
 npm run dev
