@@ -108,7 +108,42 @@ export const LoginPage = () => {
           </form>
 
           <div className="mt-8 pt-6 border-t border-slate-100">
-            <div className="text-center">
+            <p className="text-xs font-semibold text-slate-500 mb-3 text-center">
+              بيانات تجريبية سريعة للاختبار:
+            </p>
+            <div className="grid grid-cols-3 gap-2">
+              <button
+                type="button"
+                onClick={() => {
+                  setEmail('ahmad@nour.edu.jo');
+                  setPassword('password123');
+                }}
+                className="text-xs py-1.5 px-2 bg-blue-50 text-blue-700 hover:bg-blue-100 rounded-lg font-medium transition-colors border border-blue-200"
+              >
+                معلم (أحمد)
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setEmail('student10A0@nour.edu.jo');
+                  setPassword('password123');
+                }}
+                className="text-xs py-1.5 px-2 bg-emerald-50 text-emerald-700 hover:bg-emerald-100 rounded-lg font-medium transition-colors border border-emerald-200"
+              >
+                طالب (10A)
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  setEmail('student11A0@nour.edu.jo');
+                  setPassword('password123');
+                }}
+                className="text-xs py-1.5 px-2 bg-purple-50 text-purple-700 hover:bg-purple-100 rounded-lg font-medium transition-colors border border-purple-200"
+              >
+                طالب (11A)
+              </button>
+            </div>
+            <div className="mt-4 text-center">
               <p className="text-xs text-slate-400">
                 &copy; {new Date().getFullYear()} مركز نور التعليمي - عمان
               </p>
