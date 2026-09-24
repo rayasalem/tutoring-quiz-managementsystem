@@ -27,16 +27,28 @@ npm run dev
 The system uses JWT for authentication and bcrypt for password hashing.
 
 ### Sample Credentials
-| Role | Email | Password | Class |
-| :--- | :--- | :--- | :--- |
-| **Teacher** | `ahmad@nour.edu.jo` | `password123` | - |
-| **Student (10A)** | `zeid@student.com` | `password123` | 10A |
-| **Student (10B)** | `khaled@student.com` | `password123` | 10B |
-| **Student (11A)** | `yousef@student.com` | `password123` | 11A |
+All accounts use the password: `password123`
+
+#### Teachers
+| Name | Email | Role |
+| :--- | :--- | :--- |
+| **أحمد الخطيب (Ahmad)** | `ahmad@nour.edu.jo` | Teacher (Primary) |
+| **ليلى حجاوي (Layla)** | `layla@nour.edu.jo` | Teacher |
+| **عمر المصري (Omar)** | `omar@nour.edu.jo` | Teacher |
+| **سلمى العبد (Salma)** | `salma@nour.edu.jo` | Teacher |
+
+#### Sample Students
+| Name | Email | Class |
+| :--- | :--- | :--- |
+| **زيد حمدان (Zeid)** | `zeid@student.com` | 10A |
+| **خالد جابر (Khaled)** | `khaled@student.com` | 10B |
+| **يوسف منصور (Yousef)** | `yousef@student.com` | 11A |
+
+*(Additional 60 students are seeded across classes: `student10A0@nour.edu.jo` to `student10A19@nour.edu.jo`, `student10B0@nour.edu.jo` to `student10B19@nour.edu.jo`, `student11A0@nour.edu.jo` to `student11A19@nour.edu.jo`).*
 
 ## URLs
 - **Frontend:** [http://localhost:3000](http://localhost:3000)
-- **Backend Health:** [http://localhost:3005/api/health](http://localhost:3005/api/health)
+- **Backend Health:** [http://localhost:3000/api/health](http://localhost:3000/api/health)
 - **Auth Status:** [http://localhost:3000/api/auth/me](http://localhost:3000/api/auth/me) (requires token)
 
 ## Tech Stack

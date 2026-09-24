@@ -1,4 +1,4 @@
-import { sqliteTable, text, integer, real, unique } from 'drizzle-orm/sqlite-core';
+import { sqliteTable, text, integer, real } from 'drizzle-orm/sqlite-core';
 import { sql, relations } from 'drizzle-orm';
 
 export const users = sqliteTable('users', {
@@ -78,9 +78,7 @@ export const attempts = sqliteTable('attempts', {
   expiresAt: text('expires_at').notNull(), // Authority for the timer
   score: real('score').notNull().default(0),
   status: text('status', { enum: ['IN_PROGRESS', 'SUBMITTED'] }).notNull().default('IN_PROGRESS'),
-}, (table) => ({
-  unq: unique().on(table.userId, table.quizId),
-}));
+});
 
 export const attemptsRelations = relations(attempts, ({ one, many }) => ({
   user: one(users, {

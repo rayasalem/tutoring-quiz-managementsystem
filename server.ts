@@ -11,10 +11,10 @@ dotenv.config();
 
 const app = express();
 
-// Priority: APP_BACKEND_PORT > 3005
-// We explicitly AVOID using 'PORT' if it's 3000 to prevent conflict with Vite
+// Vite runs on 3000 and proxies /api to 3005.
+// Avoid port 3000 for backend to prevent EADDRINUSE conflict.
 const envPort = process.env.APP_BACKEND_PORT;
-const port = envPort ? Number(envPort) : 3005;
+const port = (envPort && Number(envPort) !== 3000) ? Number(envPort) : 3005;
 
 console.log(`[INIT] Environment APP_BACKEND_PORT: ${envPort}`);
 console.log(`[INIT] Calculated backend port: ${port}`);

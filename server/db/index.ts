@@ -19,4 +19,10 @@ const absoluteDbPath = path.isAbsolute(dbPath)
 console.log(`[DB] Opening database at: ${absoluteDbPath}`);
 const sqlite = new Database(absoluteDbPath);
 
+try {
+  sqlite.exec('CREATE UNIQUE INDEX IF NOT EXISTS attempts_user_id_quiz_id_unique ON attempts(user_id, quiz_id);');
+} catch {
+  // Table not yet created, will be created on push/seed
+}
+
 export const db = drizzle(sqlite, { schema });

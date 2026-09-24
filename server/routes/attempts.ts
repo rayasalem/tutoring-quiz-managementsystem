@@ -140,7 +140,9 @@ router.post('/:id/submit', async (req, res) => {
     });
 
     if (!attempt) return res.status(404).json({ error: 'Attempt not found' });
-    if (attempt.status !== 'IN_PROGRESS') return res.json({ message: 'Already submitted', score: attempt.score });
+    if (attempt.status !== 'IN_PROGRESS') {
+      return res.status(400).json({ error: 'Attempt is already submitted', score: attempt.score });
+    }
 
     const now = new Date();
     const isExpired = now > new Date(attempt.expiresAt);
@@ -168,7 +170,7 @@ router.post('/:id/submit', async (req, res) => {
       })
       .where(eq(attempts.id, attemptId));
 
-    res.json({ message: 'Submitted successfully', score: totalScore });
+    res.json({ message: 'Submitted successfully', score: totalScore, status: 'SUBMITTED' });
   } catch (error) {
     console.error('Submit attempt error:', error);
     res.status(500).json({ error: 'Internal server error' });

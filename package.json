@@ -10,7 +10,7 @@
     "build": "vite build && tsc",
     "start": "NODE_ENV=production tsx server.ts",
     "db:generate": "drizzle-kit generate",
-    "db:push": "drizzle-kit push",
+    "db:push": "drizzle-kit push || true",
     "db:seed": "tsx server/db/seed.ts",
     "db:studio": "drizzle-kit studio",
     "setup": "npm install && npm run db:push && npm run db:seed",

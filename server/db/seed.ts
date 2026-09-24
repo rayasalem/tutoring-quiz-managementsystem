@@ -46,6 +46,13 @@ async function seed() {
       }
     }
 
+    // Explicit sample student accounts matching README
+    students.push(
+      { id: crypto.randomUUID(), name: 'زيد حمدان', email: 'zeid@student.com', role: 'STUDENT' as const, className: '10A', passwordHash: hashed },
+      { id: crypto.randomUUID(), name: 'خالد جابر', email: 'khaled@student.com', role: 'STUDENT' as const, className: '10B', passwordHash: hashed },
+      { id: crypto.randomUUID(), name: 'يوسف منصور', email: 'yousef@student.com', role: 'STUDENT' as const, className: '11A', passwordHash: hashed }
+    );
+
     console.log('Inserting users...');
     await db.insert(users).values([...teachers, ...students]).onConflictDoNothing();
 
