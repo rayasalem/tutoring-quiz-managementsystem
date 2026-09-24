@@ -25,7 +25,7 @@ export const LoginPage = () => {
 
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col justify-center py-12 px-6 lg:px-8 font-sans" dir="rtl">
-      <div className="sm:mx-auto sm:w-full sm:max-max-w-md">
+      <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <div className="flex justify-center">
           <div className="bg-blue-600 p-3 rounded-2xl shadow-lg shadow-blue-200">
             <GraduationCap className="h-10 w-10 text-white" />

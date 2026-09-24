@@ -20,8 +20,10 @@ export default function App() {
             <ProtectedRoute role="STUDENT">
               <Routes>
                 <Route index element={<StudentDashboard />} />
+                <Route path="dashboard" element={<Navigate to="/student" replace />} />
                 <Route path="attempts/:id" element={<QuizAttempt />} />
                 <Route path="attempts/:id/result" element={<QuizResult />} />
+                <Route path="*" element={<Navigate to="/student" replace />} />
               </Routes>
             </ProtectedRoute>
           } 
@@ -33,10 +35,12 @@ export default function App() {
             <ProtectedRoute role="TEACHER">
               <Routes>
                 <Route index element={<TeacherDashboard />} />
+                <Route path="dashboard" element={<Navigate to="/teacher" replace />} />
                 <Route path="quizzes/:id/edit" element={<QuizEditor />} />
                 <Route path="quizzes/new" element={<QuizEditor />} />
                 <Route path="quizzes/:id/questions" element={<QuestionEditor />} />
                 <Route path="quizzes/:id/results" element={<TeacherResults />} />
+                <Route path="*" element={<Navigate to="/teacher" replace />} />
               </Routes>
             </ProtectedRoute>
           } 

@@ -87,7 +87,7 @@ const TeacherResults = () => {
           <h2 className="text-xl font-bold text-slate-900 mb-2">خطأ في التحميل</h2>
           <p className="text-slate-500 mb-6">{error || 'تعذر العثور على البيانات'}</p>
           <button 
-            onClick={() => navigate('/teacher/dashboard')}
+            onClick={() => navigate('/teacher')}
             className="w-full bg-blue-600 text-white py-3 rounded-xl font-bold hover:bg-blue-700 transition-colors"
           >
             العودة للوحة التحكم
@@ -105,7 +105,7 @@ const TeacherResults = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
             <button 
-              onClick={() => navigate('/teacher/dashboard')}
+              onClick={() => navigate('/teacher')}
               className="flex items-center gap-2 text-slate-600 hover:text-slate-900 font-medium"
             >
               <ChevronLeft className="w-5 h-5 rotate-180" />

@@ -306,9 +306,6 @@ router.put('/:id', authenticateToken, requireRole('TEACHER'), async (req, res) =
       return res.status(404).json({ error: 'Quiz not found' });
     }
 
-    // If already published, we might want to restrict some edits later
-    // For now, allow edits if no attempts exist (logic to be added in Phase 3)
-
     await db.update(quizzes)
       .set({
         title,
@@ -424,7 +421,7 @@ router.post('/:id/publish', authenticateToken, requireRole('TEACHER'), async (re
       .set({ isPublished: true })
       .where(eq(quizzes.id, quizId));
 
-    res.json({ message: 'Quiz published successfully' });
+    res.json({ message: 'Quiz published successfully', isPublished: true });
   } catch (error) {
     console.error('Publish quiz error:', error);
     res.status(500).json({ error: 'Internal server error' });

@@ -104,9 +104,13 @@ export const QuizAttempt = () => {
     try {
       await api.post(`/attempts/${id}/submit`);
       navigate(`/student/attempts/${id}/result`);
-    } catch (err) {
+    } catch (err: any) {
       console.error('Failed to submit quiz:', err);
-      setIsSubmitting(false);
+      if (err.response?.status === 400) {
+        navigate(`/student/attempts/${id}/result`);
+      } else {
+        setIsSubmitting(false);
+      }
     }
   };
 

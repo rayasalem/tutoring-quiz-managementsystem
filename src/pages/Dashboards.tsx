@@ -21,6 +21,7 @@ export const StudentDashboard = () => {
   const { user, logout } = useAuth();
   const [quizzes, setQuizzes] = useState<Quiz[]>([]);
   const [loading, setLoading] = useState(true);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -61,7 +62,7 @@ export const StudentDashboard = () => {
           navigate(`/student/attempts/${attemptId}`);
         }
       } else {
-        alert(err.response?.data?.error || 'فشل بدء الاختبار');
+        setErrorMessage(err.response?.data?.error || 'فشل بدء الاختبار');
       }
     }
   };
@@ -99,6 +100,13 @@ export const StudentDashboard = () => {
           <h1 className="text-2xl font-extrabold text-slate-900">الاختبارات المتاحة</h1>
           <p className="text-slate-500 mt-1">اختر اختباراً للبدء. تذكر أن لديك محاولة واحدة فقط لكل اختبار.</p>
         </header>
+
+        {errorMessage && (
+          <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-2xl flex items-center justify-between text-red-700 text-sm font-semibold">
+            <span>{errorMessage}</span>
+            <button onClick={() => setErrorMessage(null)} className="text-red-500 hover:text-red-700 font-bold px-2">✕</button>
+          </div>
+        )}
 
         {loading ? (
           <div className="flex justify-center py-20">

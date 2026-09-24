@@ -170,7 +170,9 @@ router.post('/:id/submit', async (req, res) => {
       })
       .where(eq(attempts.id, attemptId));
 
-    res.json({ message: 'Submitted successfully', score: totalScore, status: 'SUBMITTED' });
+    const totalPossiblePoints = attempt.quiz.questions.reduce((sum, q) => sum + q.points, 0);
+
+    res.json({ message: 'Submitted successfully', score: totalScore, totalPossiblePoints, status: 'SUBMITTED' });
   } catch (error) {
     console.error('Submit attempt error:', error);
     res.status(500).json({ error: 'Internal server error' });

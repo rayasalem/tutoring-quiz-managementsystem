@@ -80,7 +80,6 @@ export const QuestionEditor = () => {
   };
 
   const handleDeleteQuestion = async (qId: string) => {
-    if (!window.confirm('هل أنت متأكد من حذف هذا السؤال؟')) return;
     try {
       await api.delete(`/quizzes/questions/${qId}`);
       fetchData();
